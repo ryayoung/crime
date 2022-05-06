@@ -8,6 +8,8 @@
 > 
 > With detailed metadata, you'll even see a full list of possible categories in any text column, and a frequency count of each, without ever loading the data.
 
+<br>
+
 ## Install & Use
 
 ```text
@@ -37,6 +39,8 @@ cr.sources() # returns a DataFrame
 <img width="800" alt="image" src="https://user-images.githubusercontent.com/90723578/167085160-60aacd51-f4c4-4a7f-8c0b-b62551f42236.png">
 
 > You'll get a df with basic info on all the sources. The index, `Name` is the nickname with which you'll refer to the dataset moving forward. The `Type` column can be "Records" or "Aggregate". Aggregate is usually a small, year-by-year dataset with 30-100 rows, from which you can easily make charts.
+
+<br>
 
 To examine a source, pass the name of the dataset to `sources()`. This will make an api request to get all of its metadata.
 
