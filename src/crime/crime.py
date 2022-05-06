@@ -65,6 +65,7 @@ def sources(name:str = None) -> pd.DataFrame or None:
         print(data['description'])
         print()
         print("COLUMNS:")
+        print("-------")
         for c in data['columns']:
             cached = c.get('cachedContents', {})
             print(c['name'])
