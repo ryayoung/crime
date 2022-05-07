@@ -10,14 +10,20 @@ from crime.soda_api import Soda
 
 
 def help():
-    print("""Get DataFrame with basic info on all datasets:
->>> crime.sources()
+    print("""Declare your app token (optional, recommended)
+>>> cr.set_token("XXXXXXX")
 
-View FULL details on a source (description, column descriptions, etc.)
->>> crime.sources('dataset_name')
+DataFrame with info on all datasets:
+>>> cr.sources()
+
+Details on a dataset, and description of all columns
+>>> cr.sources('dataset_name')
+
+Quickly preview its first 5 rows
+>>> cr.load('dataset_name')
 
 Load full dataset
->>> crime.load('dataset_name')
+>>> cr.load('dataset_name', full=True)
 """)
 
 
@@ -59,6 +65,8 @@ def sources(name:str = None) -> pd.DataFrame or None:
         web_url = info['web_url']
 
         data = Soda.get_metadata(base_url, data_id)
+        # print(json.dumps(data, indent=2))
+        # return
         print(data['name'])
         print(web_url)
         print()
@@ -69,18 +77,15 @@ def sources(name:str = None) -> pd.DataFrame or None:
         for c in data['columns']:
             cached = c.get('cachedContents', {})
             print(c['name'])
-            print(f"  Type: {c['dataTypeName']}")
-            print(f"  Null: {cached.get('null', None)}")
-            print(f"  Non-Null: {cached.get('non_null', None)}")
+            print(f"  Field:  {c['fieldName']}")
+            print(f"  Type:   {c['dataTypeName']}")
+            print(f"  Null:   {cached.get('null', '-')}")
+            print(f"  Count:  {cached.get('non_null', '-')}")
             if c['dataTypeName'] == 'number':
-                if cached.get('average', "").isdigit():
-                    print(f"  Avg: {round(float(cached.get('average', 0)), 2)}")
-                if cached.get('largest', "").isdigit():
-                    print(f"  Max: {float(cached.get('largest', 0))}")
-                if cached.get('smallest', "").isdigit():
-                    print(f"  Min: {float(cached.get('smallest', 0))}")
-                if cached.get('sum', "").isdigit():
-                    print(f"  Sum: {float(cached.get('sum', 0))}")
+                print(f"  Avg:    {cached.get('average', '-')}")
+                print(f"  Max:    {cached.get('largest', '-')}")
+                print(f"  Min:    {cached.get('smallest', '-')}")
+                print(f"  Sum:    {cached.get('sum', '-')}")
             else:
                 cached = c.get('cachedContents', {})
                 if len(cached.get('top', [])) > 1:
@@ -90,7 +95,7 @@ def sources(name:str = None) -> pd.DataFrame or None:
                             print(f"     {str(i['item'])[:60]}  ({i['count']})")
             print()
 
-        return None
+        return
 
 
 def load(name:str, **kwargs) -> pd.DataFrame:

@@ -47,300 +47,70 @@ To examine a source, pass the name of the dataset to `sources()`. This will make
 But first, please declare your [App Token](#getting_token). Without it, you'll get warnings and throttling.
 
 ```py
-cr.set_token('XXXXXXXXXX') # your token here
+cr.set_token('XXXXXXXXXX')
 ```
 
-Let's see the details on `arrest_demographics`. All the info below is coming from Socrata's api.
+Let's see the details on `crime_vs_incarceration` rate. All the info below is coming from Socrata's api.
 
 ```py
-cr.sources('arrest_demographics')
+cr.sources('crime_vs_incarceration') 
 ```
 
 ```text
-Arrest Data with all Offenses and Demographic Detail
-https://dev.socrata.com/foundry/policedata.coloradosprings.gov/jw9n-x43p
+Total Crime Rate vs Incarceration Rate Chart
+https://dev.socrata.com/foundry/data.colorado.gov/ae3x-wvn9
 
-This dataset includes all arrests with all offenses listed for each arrest.  Each
-offense lists the demographic information for the person arrested for that offense.
-There may be multiple offenses for an arrestee.  This dataset should only be used
-for counting the number of offenses related to arrests.
+Total Crime includes: Violent crimes- Murder and non-negligent manslaughter, 
+forcible rape, robbery, and aggravated assault. Property crimes - Burglary,
+larceny/theft, and motor vehicle theft. National or state offense totals are
+based on data from all reporting agencies and estimates for unreported areas.
+Rates are the number of reported offenses per 100,000 population. These
+figures are based on end of calendar year populations.
 
 COLUMNS:
 -------
+Year
+  Field:  year
+  Type:   text
+  Null:   0
+  Count:  31
+
+Population
+  Field:  population
+  Type:   number
+  Null:   0
+  Count:  31
+  Avg:    4019137.064516129
+  Max:    5187582
+  Min:    3045000
+  Sum:    124593249
+
+Violent Crime Total
+  Field:  violent_crime_total
+  Type:   number
+  Null:   0
+  Count:  31
+  Avg:    16445.54838709677
+  Max:    20229
+  Min:    13811
+  Sum:    509812
 ```
 
+(output is truncated to save space)
 
-<details><summary><b>SHOW OUTPUT</b></summary>
-
-```text
-Arrest Data with all Offenses and Demographic Detail
-https://dev.socrata.com/foundry/policedata.coloradosprings.gov/jw9n-x43p
-
-This dataset includes all arrests with all offenses listed for each arrest.  Each
-offense lists the demographic information for the person arrested for that offense.
-There may be multiple offenses for an arrestee.  This dataset should only be used
-for counting the number of offenses related to arrests.
-
-COLUMNS:
--------
-Case Number
-  Type: text
-  Null: 71
-  Non-Null: 208937
-
-Arrest Number
-  Type: text
-  Null: 0
-  Non-Null: 209008
-
-Arrest Date Time
-  Type: calendar_date
-  Null: 0
-  Non-Null: 209008
-
-Arrest Type
-  Type: text
-  Null: 209008
-  Non-Null: 0
-
-Age Category
-  Type: text
-  Null: 0
-  Non-Null: 209008
-  ITEMS:
-     Adult  (200847)
-     Juvenile  (8161)
-
-Crime Code
-  Type: text
-  Null: 0
-  Non-Null: 209008
-
-Crime Code Description
-  Type: text
-  Null: 0
-  Non-Null: 209008
-  ITEMS:
-     All Other Offenses (Except Traffic)  (69395)
-     Not Reportable  (21108)
-     Driving Under the Influence  (18243)
-     Trespass of Real Property  (13704)
-     Shoplifting  (11132)
-     Drug/Narcotic Violations  (9819)
-     Simple Assault  (8084)
-     Aggravated Assault  (6645)
-     Destruction/Damage/Vandalism of Property  (6508)
-     Drug Equipment Violations  (4769)
-     Burglary/Breaking & Entering  (3621)
-     Family Offenses/Nonviolent  (3552)
-     Weapons Law Violations  (3474)
-     Motor Vehicle Theft  (3422)
-     Intimidation  (3052)
-     Disorderly Conduct/Disturbing The Peace  (2482)
-     All Other Larceny  (2426)
-     Theft From Building  (1890)
-     Liquor Law Violations  (1830)
-     Identity Theft  (1716)
-
-NCIC Code
-  Type: number
-  Null: 21452
-  Non-Null: 187556
-  Max: 7399.0
-  Min: 199.0
-
-NCIC Code Description
-  Type: text
-  Null: 21452
-  Non-Null: 187556
-  ITEMS:
-     Driving Under Influence Liquor  (17555)
-     Failure to Appear  (15293)
-     Trespassing (describe offense)  (13701)
-     Contempt of Court  (13012)
-     Harassing Communication  (11439)
-     Shoplifting  (11125)
-     Public Order Crimes  (9771)
-     Flight to Avoid-(Prosecution, confinement, etc.)  (8588)
-     Simple Assault  (8084)
-     Damage Property-Private  (4965)
-     Narcotic Equipment - Possess  (4770)
-     Amphetemine - Possess  (4219)
-     Cruelty Toward Child  (3513)
-     Vehicle Theft  (3420)
-     Intimidation (Includes Stalking)  (3050)
-     Obstruct Police (Describe Offense)  (2906)
-     Larceny (Describe Offense)  (2135)
-     Larceny-From Building  (1815)
-     Possession of Weapon (specify weapon)  (1814)
-     Liquor - Possess  (1792)
-
-Statute or Ordinance
-  Type: text
-  Null: 0
-  Non-Null: 209008
-
-Statute or Ordinance Description
-  Type: text
-  Null: 0
-  Non-Null: 209008
-  ITEMS:
-     Driving under the influence - alcohol (DUI)  (9774)
-     FUGITIVE OTHER JURISDICTION WARRANT  (7797)
-     Harassment - Strike, Shove, or Kick  (7741)
-     3rd Degree Assault - BI to Another - Simple Assault  (7388)
-     SHOPLIFTING  (7354)
-     FTA/FTP/FTC El Paso County Traffic Bench Warrants  (6988)
-     Driving under the influence - blood alcohol content .08 or m  (6755)
-     TRESPASS ON PRIVATE PROPERTY  (6362)
-     Failure to Appear  (5385)
-     FTA El Paso County Misdemeanor Criminal Bench Warrant  (5179)
-     CONTEMPT OF COURT  (4834)
-     Possession of Drug Paraphernalia  (4583)
-     Repealed - Possess Schedule I, II, Flunitrazepam,  Ketamine,  (4405)
-     FTA El Paso County Criminal Felony Bench Warrant  (2963)
-     Violation of a Protection Order - MPO  (2927)
-     Careless Driving-Accident  (2901)
-     Driving Under Restraint - Drove Vehicle w/ License Under Res  (2510)
-     CONTEMPT OF COURT-COC  (2192)
-     Child Abuse - Knowingly/Recklessly  - NO Injury  (2105)
-     Violation of a Protection Order  (2004)
-
-Age At Arrest
-  Type: number
-  Null: 10
-  Non-Null: 208998
-  Max: 101.0
-  Min: 9.0
-
-Age Range
-  Type: text
-  Null: 0
-  Non-Null: 209008
-
-Race
-  Type: text
-  Null: 30
-  Non-Null: 208978
-  ITEMS:
-     White  (164243)
-     Black  (39406)
-     Asian/Pacific Islander  (2214)
-     Unknown  (1899)
-     American Indian/Alaskan Native  (1216)
-
-Gender
-  Type: text
-  Null: 4
-  Non-Null: 209004
-  ITEMS:
-     Male  (153038)
-     Female  (55833)
-     Unknown  (125)
-     Non-Binary  (8)
-
-Ethnicity
-  Type: text
-  Null: 90
-  Non-Null: 208918
-  ITEMS:
-     Non Hispanic Origin  (163973)
-     Hispanic  (36591)
-     Unknown  (8354)
-
-Arrest Location
-  Type: text
-  Null: 7428
-  Non-Null: 201580
-
-City
-  Type: text
-  Null: 3361
-  Non-Null: 205647
-  ITEMS:
-     COLORADO SPRINGS  (203005)
-     FOUNTAIN  (424)
-     FALCON  (227)
-     PUEBLO  (183)
-     MANITOU SPRINGS  (178)
-     FORT CARSON  (170)
-     Colorado Springs  (166)
-     Denver  (120)
-     Golden  (90)
-     MONUMENT  (82)
-     PETERSON AFB  (77)
-     DIVIDE  (48)
-     CASTLE ROCK  (45)
-     USAF ACADEMY  (43)
-     Canon City  (43)
-     CENTENNIAL  (34)
-     CRIPPLE CREEK  (31)
-     Castle Rock  (30)
-     DENVER  (29)
-     BLACK FOREST  (28)
-
-Zip Code
-  Type: text
-  Null: 6456
-  Non-Null: 202552
-
-Location Point
-  Type: point
-  Null: 16128
-  Non-Null: 192880
-  ITEMS:
-     {'coordinates': [-104.777148, 38.789016], 'type': 'Point'}  (10815)
-     {'coordinates': [-104.799951, 38.838812], 'type': 'Point'}  (8460)
-     {'coordinates': [-104.822327, 38.824511], 'type': 'Point'}  (6690)
-     {'coordinates': [-104.76814, 38.840052], 'type': 'Point'}  (3568)
-     {'coordinates': [-104.840147, 38.824583], 'type': 'Point'}  (3418)
-     {'coordinates': [-104.822473, 38.817906], 'type': 'Point'}  (2090)
-     {'coordinates': [-104.723441, 38.853379], 'type': 'Point'}  (1947)
-     {'coordinates': [-104.714681, 38.891221], 'type': 'Point'}  (1901)
-     {'coordinates': [-104.758533, 38.96597], 'type': 'Point'}  (1418)
-     {'coordinates': [-104.8431, 38.824914], 'type': 'Point'}  (1344)
-     {'coordinates': [-104.823732, 38.83086], 'type': 'Point'}  (1334)
-     {'coordinates': [-104.820181, 38.864326], 'type': 'Point'}  (1208)
-     {'coordinates': [-104.750955, 38.811371], 'type': 'Point'}  (1136)
-     {'coordinates': [-104.828812, 38.837017], 'type': 'Point'}  (1083)
-     {'coordinates': [-104.80397, 38.944961], 'type': 'Point'}  (1024)
-     {'coordinates': [-104.82644, 38.834634], 'type': 'Point'}  (889)
-     {'coordinates': [-104.822395, 38.807876], 'type': 'Point'}  (773)
-     {'coordinates': [-104.82957637104, 38.8185852544053], 'type'  (755)
-     {'coordinates': [-104.82068, 38.835227], 'type': 'Point'}  (746)
-     {'coordinates': [-104.823293, 38.838124], 'type': 'Point'}  (590)
-
-Patrol Division
-  Type: text
-  Null: 16178
-  Non-Null: 192830
-  ITEMS:
-     Gold Hill  (75072)
-     Sand Creek  (61486)
-     Stetson Hills  (30377)
-     Falcon  (25895)
-
-Neighborhoods
-  Type: number
-  Null: None
-  Non-Null: None
-```
-
-</details>
-
-
-Notice the text/categorical columns...
+Here's what you'll see for text/categorical columns...
 
 ```text
 Race
-  Type: text
-  Null: 30
-  Non-Null: 208978
+  Field:  race
+  Type:   text
+  Null:   30
+  Count:  209078
   ITEMS:
-     White  (164243)
-     Black  (39406)
-     Asian/Pacific Islander  (2214)
-     Unknown  (1899)
+     White  (164276)
+     Black  (39469)
+     Asian/Pacific Islander  (2216)
+     Unknown  (1901)
      American Indian/Alaskan Native  (1216)
 ```
 
