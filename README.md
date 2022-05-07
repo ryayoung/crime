@@ -54,7 +54,7 @@ Let's look at the crime data available
 ```py
 cr.sources() # returns a DataFrame
 ```
-<img width="800" alt="image" src="https://user-images.githubusercontent.com/90723578/167085160-60aacd51-f4c4-4a7f-8c0b-b62551f42236.png">
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/90723578/167237471-51ad543b-9422-4285-a35f-72562c6431bc.png">
 
 > You'll get a DataFrame with basic info on all the sources. The index, `Name` is the nickname with which you'll refer to the dataset moving forward.
 
