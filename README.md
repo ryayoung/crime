@@ -31,6 +31,10 @@ import crime as cr
 
 #
 
+### If you're in a rush and just want to get started, run `cr.help()` to show a quick intro.
+
+#
+
 Let's look at the crime data available
 
 ```py
