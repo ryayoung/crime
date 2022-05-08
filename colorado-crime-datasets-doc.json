@@ -214,5 +214,14 @@
         "location": "Colorado",
         "base_url": "data.colorado.gov",
         "type": "Aggregate"
+    },
+    "district_homeless_student": {
+        "id": "vakp-8ans",
+        "rows": 184,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/vakp-8ans",
+        "date_range": [2011, 2012],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Aggregate"
     }
 }
