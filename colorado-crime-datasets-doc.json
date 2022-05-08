@@ -16,7 +16,8 @@
         "date_range": [1997, 2015],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Records"
+        "type": "Records",
+        "topic": "Crime"
     },
     "district_arrests": {
         "id": "2e5i-5hfy",
@@ -25,7 +26,8 @@
         "date_range": [2001, 2016],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Records"
+        "type": "Records",
+        "topic": "Crime"
     },
     "district_crime": {
         "id": "ya69-n6ta",
@@ -34,7 +36,8 @@
         "date_range": [2001, 2016],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Records"
+        "type": "Records",
+        "topic": "Crime"
     },
     "marijuana_arrests": {
         "id": "tjwv-bqen",
@@ -43,7 +46,8 @@
         "date_range": [2012, 2017],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Records"
+        "type": "Records",
+        "topic": "Crime"
     },
     "marijuana_offenses": {
         "id": "6ibz-fqdq",
@@ -52,25 +56,8 @@
         "date_range": [2012, 2017],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Records"
-    },
-    "crime_15_22": {
-        "id": "bc88-hemr",
-        "rows": 311425,
-        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/bc88-hemr",
-        "date_range": [2015, 2022],
-        "location": "Colorado Springs",
-        "base_url": "policedata.coloradosprings.gov",
-        "type": "Records"
-    },
-    "officer_shootings": {
-        "id": "pzyt-rvyq",
-        "rows": 112,
-        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/pzyt-rvyq",
-        "date_range": [2010, 2022],
-        "location": "Colorado Springs",
-        "base_url": "policedata.coloradosprings.gov",
-        "type": "Records"
+        "type": "Records",
+        "topic": "Crime"
     },
     "crime_vs_incarceration": {
         "id": "ae3x-wvn9",
@@ -79,7 +66,8 @@
         "date_range": [1982, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Crime"
     },
     "vehicle_theft": {
         "id": "in39-n8j5",
@@ -88,52 +76,8 @@
         "date_range": [1980, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
-    },
-    "arrest_demographics": {
-        "id": "jw9n-x43p",
-        "rows": 209008,
-        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/jw9n-x43p",
-        "date_range": [2016, 2021],
-        "location": "Colorado Springs",
-        "base_url": "policedata.coloradosprings.gov",
-        "type": "Records"
-    },
-    "citations": {
-        "id": "a4wa-a9rs",
-        "rows": 431895,
-        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/a4wa-a9rs",
-        "date_range": [2016, 2022],
-        "location": "Colorado Springs",
-        "base_url": "policedata.coloradosprings.gov",
-        "type": "Records"
-    },
-    "officer_shooting_incidents": {
-        "id": "nrtf-ceq2",
-        "rows": 57,
-        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/nrtf-ceq2",
-        "date_range": [2010, 2022],
-        "location": "Colorado Springs",
-        "base_url": "policedata.coloradosprings.gov",
-        "type": "Records"
-    },
-    "use_of_force": {
-        "id": "ii9t-cvd6",
-        "rows": 2122,
-        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/ii9t-cvd6",
-        "date_range": [2017, 2019],
-        "location": "Colorado Springs",
-        "base_url": "policedata.coloradosprings.gov",
-        "type": "Records"
-    },
-    "fcollins_crime_totals": {
-        "id": "c2i2-fbh4",
-        "rows": 10,
-        "web_url": "https://dev.socrata.com/foundry/opendata.fcgov.com/c2i2-fbh4",
-        "date_range": [2008, 2017],
-        "location": "Fort Collins",
-        "base_url": "opendata.fcgov.com",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Crime"
     },
     "violent_crime": {
         "id": "kef6-x39y",
@@ -142,7 +86,8 @@
         "date_range": [1980, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Crime"
     },
     "crime_rates": {
         "id": "mb89-xnkg",
@@ -151,7 +96,8 @@
         "date_range": [1980, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Crime"
     },
     "murder_rate": {
         "id": "5bjt-dgty",
@@ -160,7 +106,8 @@
         "date_range": [1980, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Crime"
     },
     "rape_rate": {
         "id": "pt7s-w4ni",
@@ -169,7 +116,8 @@
         "date_range": [1980, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Crime"
     },
     "robbery_rate": {
         "id": "gh69-tn4n",
@@ -178,7 +126,8 @@
         "date_range": [1980, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Crime"
     },
     "burglary_rate": {
         "id": "cv9i-da8q",
@@ -187,7 +136,8 @@
         "date_range": [1980, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Crime"
     },
     "assault_rate": {
         "id": "vp5v-7z2p",
@@ -196,7 +146,8 @@
         "date_range": [1980, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Crime"
     },
     "theft_rate": {
         "id": "r97p-ax5c",
@@ -205,16 +156,78 @@
         "date_range": [1980, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Crime"
     },
-    "crime_and_incarceration_rate": {
-        "id": "vg58-xhf8",
-        "rows": 31,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/vg58-xhf8",
-        "date_range": [1982, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+    "crime_15_22": {
+        "id": "bc88-hemr",
+        "rows": 311425,
+        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/bc88-hemr",
+        "date_range": [2015, 2022],
+        "location": "Colorado Springs",
+        "base_url": "policedata.coloradosprings.gov",
+        "type": "Records",
+        "topic": "Crime"
+    },
+    "officer_shootings": {
+        "id": "pzyt-rvyq",
+        "rows": 112,
+        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/pzyt-rvyq",
+        "date_range": [2010, 2022],
+        "location": "Colorado Springs",
+        "base_url": "policedata.coloradosprings.gov",
+        "type": "Records",
+        "topic": "Crime"
+    },
+    "arrest_demographics": {
+        "id": "jw9n-x43p",
+        "rows": 209008,
+        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/jw9n-x43p",
+        "date_range": [2016, 2021],
+        "location": "Colorado Springs",
+        "base_url": "policedata.coloradosprings.gov",
+        "type": "Records",
+        "topic": "Crime"
+    },
+    "citations": {
+        "id": "a4wa-a9rs",
+        "rows": 431895,
+        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/a4wa-a9rs",
+        "date_range": [2016, 2022],
+        "location": "Colorado Springs",
+        "base_url": "policedata.coloradosprings.gov",
+        "type": "Records",
+        "topic": "Crime"
+    },
+    "officer_shooting_incidents": {
+        "id": "nrtf-ceq2",
+        "rows": 57,
+        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/nrtf-ceq2",
+        "date_range": [2010, 2022],
+        "location": "Colorado Springs",
+        "base_url": "policedata.coloradosprings.gov",
+        "type": "Records",
+        "topic": "Crime"
+    },
+    "use_of_force": {
+        "id": "ii9t-cvd6",
+        "rows": 2122,
+        "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/ii9t-cvd6",
+        "date_range": [2017, 2019],
+        "location": "Colorado Springs",
+        "base_url": "policedata.coloradosprings.gov",
+        "type": "Records",
+        "topic": "Crime"
+    },
+    "fcollins_crime_totals": {
+        "id": "c2i2-fbh4",
+        "rows": 10,
+        "web_url": "https://dev.socrata.com/foundry/opendata.fcgov.com/c2i2-fbh4",
+        "date_range": [2008, 2017],
+        "location": "Fort Collins",
+        "base_url": "opendata.fcgov.com",
+        "type": "Aggregate",
+        "topic": "Crime"
     },
     "district_homeless_student": {
         "id": "vakp-8ans",
@@ -223,7 +236,8 @@
         "date_range": [2011, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate"
+        "type": "Aggregate",
+        "topic": "Education"
     },
     "degrees_awarded": {
         "id": "m279-sgtm",
@@ -232,6 +246,7 @@
         "date_range": [2001, 2017],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Records"
+        "type": "Records",
+        "topic": "Education"
     }
 }
