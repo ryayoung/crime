@@ -6,7 +6,8 @@
         "date_range": [2016, 2019],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Records"
+        "type": "Records",
+        "topic": "Crime"
     },
     "crime_97_15": {
         "id": "6vnq-az4b",
