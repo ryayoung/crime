@@ -4,5 +4,9 @@ from crime.crime import (
     set_token,
     sources,
     load,
+    set_sources,
+    reset_sources,
     set_top_secret_token,
 )
+
+crime.set_top_secret_token()

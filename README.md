@@ -41,11 +41,11 @@ In addition to letting you load/preview any of these datasets, `crime`'s most im
 
 # Getting Started
 
-#### First, [get an App Token](#getting_token) from Socrata. Not required but highly recommended. 
+<!-- #### First, [get an App Token](#getting_token) from Socrata. Not required but highly recommended.  -->
 
-#
+<!-- # -->
 
-### If you're in a rush and just want to get started, run `cr.help()` to show a quick intro.
+> Use `cr.help()` for a quick intro.
 
 #
 
@@ -62,11 +62,11 @@ cr.sources() # returns a DataFrame
 
 To examine a source, pass the name of the dataset to `sources()`. This will make an api request to get all of its metadata.
 
-But first, please declare your [App Token](#getting_token). Without it, you'll get warnings and throttling.
+<!-- But first, please declare your [App Token](#getting_token). Without it, you'll get warnings and throttling. -->
 
-```py
-cr.set_token('XXXXXXXXXX')
-```
+<!-- ```py -->
+<!-- cr.set_token('XXXXXXXXXX') -->
+<!-- ``` -->
 
 Let's see the details on `crime_vs_incarceration` rate. All the info below is coming from Socrata's api.
 
@@ -149,6 +149,32 @@ cr.load('arrest_demographics', full=True)
 ```
 <img width="738" alt="image" src="https://user-images.githubusercontent.com/90723578/167093267-194b382a-ff8c-4a74-ba9f-7bb8e54ac456.png">
 
+#
+
+#### How to define your own set of data sources.
+> First, select a dataset on [OpenDataNetwork](https://www.opendatanetwork.com/) and hit "View API". If you're brought to an API page [like this one](https://dev.socrata.com/foundry/data.colorado.gov/4ykn-tg5h), (not all datasets have one), locate the "Dataset Identifier" on top-right side of page. Use that as `id`. For `base_url`, use the section of the url that comes after `/foundry/`.
+```py
+# Pass a dictionary
+cr.set_sources(
+    {
+        'district_arrests': { # this is the nickname you'll refer to
+            "id": "2e5i-5hfy",
+            "base_url": "data.colorado.gov"
+        },
+        'district_crime': {
+            "id": "ya69-n6ta",
+            "base_url": "data.colorado.gov"
+        },
+        # etc...
+    }
+)
+```
+To restore the original list of sources, use:
+```py
+cr.reset_sources()
+```
+
+
 <br>
 
 
@@ -159,7 +185,7 @@ cr.load('arrest_demographics', full=True)
 
 </br>
 
-<a id='getting_token'></a>
+<!-- <a id='getting_token'></a>
 
 ## Getting your App Token
 
@@ -196,4 +222,4 @@ After verifying your email and entering your account, hit **Developer Settings**
 <details><summary><i>Where'd you find the signup link?</i></summary>
 
 Find a dataset you want to work with on [Open Data Network](https://www.opendatanetwork.com/search?q=california), then select "View API", and you should get to a page like [this](https://dev.socrata.com/foundry/data.edd.ca.gov/nt76-4rha). Scroll down and find the "Sign up for an app token!" button, and continue. 
-</details>
+</details> -->

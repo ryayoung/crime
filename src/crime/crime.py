@@ -7,12 +7,11 @@ import time
 from crime.library import Library
 from crime.soda_api import Soda
 
+# Declare your app token (optional, recommended)
+# >>> cr.set_token("XXXXXXX")
 
 def help():
-    print("""Declare your app token (optional, recommended)
->>> cr.set_token("XXXXXXX")
-
-DataFrame with info on all datasets:
+    print("""DataFrame with info on all datasets:
 >>> cr.sources()
 
 Details on a dataset, and description of all columns
@@ -23,6 +22,23 @@ Quickly preview its first 5 rows
 
 Load full dataset
 >>> cr.load('dataset_name', full=True)
+
+Declare your own collection of sources (pass a dictionary)
+>>> cr.set_sources({
+        'district_arrests': { # this is the nickname you'll refer to
+            "id": "2e5i-5hfy",
+            "base_url": "data.colorado.gov"
+        },
+        'district_crime': {
+            "id": "ya69-n6ta",
+            "base_url": "data.colorado.gov"
+        },
+        # etc...
+    }
+)
+
+Revert to using the default sources
+>>> cr.reset_sources()
 """)
 
 
@@ -61,7 +77,7 @@ def sources(name:str = None) -> pd.DataFrame or None:
         info = Library.data[name]
         base_url = info['base_url']
         data_id = info['id']
-        web_url = info['web_url']
+        web_url = info.get('web_url', "")
 
         data = Soda.get_metadata(base_url, data_id)
         # print(json.dumps(data, indent=2))
@@ -122,6 +138,12 @@ def load(name:str, **kwargs) -> pd.DataFrame:
     except Exception as e:
         print(e)
 
+
+def set_sources(data:dict):
+    Library.set_data(data)
+
+def reset_sources():
+    Library.reset_data()
 
 
 

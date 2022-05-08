@@ -17,6 +17,9 @@ class MetaLibrary(type):
 
     @property
     def data(cls):
+        if cls._user_data != None:
+            return cls._user_data
+
         if cls._data == None:
             try:
                 cls._data = dict(requests.get(cls._url).json())
@@ -39,15 +42,51 @@ class Library(object, metaclass=MetaLibrary):
     """
 
     _url = "https://raw.githubusercontent.com/ryayoung/crime/main/colorado-crime-datasets-doc.json"
-    _data = None
+    _data = None # default sources
+    _user_data = None # user-defined sources
+
+    # Try to load default sources online
     try:
         _data = dict(requests.get(_url).json())
     except Exception as e:
         _data = None
+    
+
+    @classmethod
+    def set_data(cls, data:dict):
+        if type(data) != dict:
+            raise ValueError("""
+Must provide a dict of dicts. Example:
+{
+    "my_dataset_1": {
+        "id": "ab3c-e4gh",
+        "base_url": "data.colorado.gov"
+    },
+    "my_dataset_2": {
+        "id": "..."
+        "base_url": "..."
+    },
+    etc...
+}""")
+
+        for k, v in data.items():
+            if type(v) != dict:
+                raise ValueError(f"The value of '{k}' must be a dict with at least two items, 'id' and 'base_url'")
+            if "id" not in v:
+                raise ValueError(f"Item '{k}' must contain an 'id' element.")
+            if "base_url" not in v:
+                raise ValueError(f"Item '{k}' must contain a 'base_url' element.")
+            
+        cls._user_data = data
+    
+
+    @classmethod
+    def reset_data(cls):
+        cls._user_data = None
 
 
     @classmethod
-    def tabular(cls):
+    def tabular(cls) -> pd.DataFrame:
         """
         Gives the end user the contents of the self.data dictionary
         as a pandas dataframe, including only the important fields,
