@@ -223,5 +223,14 @@
         "location": "Colorado",
         "base_url": "data.colorado.gov",
         "type": "Aggregate"
+    },
+    "degrees_awarded": {
+        "id": "m279-sgtm",
+        "rows": 221941,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/m279-sgtm",
+        "date_range": [2001, 2017],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Records"
     }
 }
