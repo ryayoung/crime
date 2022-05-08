@@ -1,5 +1,6 @@
 {
     "crime_16_19": {
+        "full_name": "Crimes in Colorado",
         "id": "j6g4-gayk",
         "rows": 1851996,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/j6g4-gayk",
@@ -10,6 +11,7 @@
         "topic": "Crime"
     },
     "crime_97_15": {
+        "full_name": "Crimes in Colorado 1997 to 2015",
         "id": "6vnq-az4b",
         "rows": 4952282,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/6vnq-az4b",
@@ -20,6 +22,7 @@
         "topic": "Crime"
     },
     "district_arrests": {
+        "full_name": "Crime Arrests by Police District 2001-2016 in Colorado",
         "id": "2e5i-5hfy",
         "rows": 93114,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/2e5i-5hfy",
@@ -30,6 +33,7 @@
         "topic": "Crime"
     },
     "district_crime": {
+        "full_name": "Crime Offenses by Police District 2001-2016 in Colorado",
         "id": "ya69-n6ta",
         "rows": 78843,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/ya69-n6ta",
@@ -40,6 +44,7 @@
         "topic": "Crime"
     },
     "marijuana_arrests": {
+        "full_name": "Department Of Public Safety - Colorado Bureau Of Investigations - Marijuana Arrests",
         "id": "tjwv-bqen",
         "rows": 7697,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/tjwv-bqen",
@@ -50,6 +55,7 @@
         "topic": "Crime"
     },
     "marijuana_offenses": {
+        "full_name": "Department Of Public Safety - Colorado Bureau Of Investigations - Marijuana Offenses",
         "id": "6ibz-fqdq",
         "rows": 6790,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/6ibz-fqdq",
@@ -59,7 +65,19 @@
         "type": "Records",
         "topic": "Crime"
     },
+    "crime_rates": {
+        "full_name": "Crime Rates 1980-2012",
+        "id": "mb89-xnkg",
+        "rows": 33,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/mb89-xnkg",
+        "date_range": [1980, 2012],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Aggregate",
+        "topic": "Crime"
+    },
     "crime_vs_incarceration": {
+        "full_name": "Total Crime Rate vs Incarceration Rate Chart",
         "id": "ae3x-wvn9",
         "rows": 31,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/ae3x-wvn9",
@@ -70,6 +88,7 @@
         "topic": "Crime"
     },
     "vehicle_theft": {
+        "full_name": "Motor Vehicle Theft Rate",
         "id": "in39-n8j5",
         "rows": 33,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/in39-n8j5",
@@ -80,6 +99,7 @@
         "topic": "Crime"
     },
     "violent_crime": {
+        "full_name": "Violent Crime Rate",
         "id": "kef6-x39y",
         "rows": 33,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/kef6-x39y",
@@ -89,17 +109,8 @@
         "type": "Aggregate",
         "topic": "Crime"
     },
-    "crime_rates": {
-        "id": "mb89-xnkg",
-        "rows": 33,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/mb89-xnkg",
-        "date_range": [1980, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Crime"
-    },
     "murder_rate": {
+        "full_name": "Murder and Non-Negligent Manslaughter Rate",
         "id": "5bjt-dgty",
         "rows": 33,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/5bjt-dgty",
@@ -110,6 +121,7 @@
         "topic": "Crime"
     },
     "rape_rate": {
+        "full_name": "Forcible Rape Rate",
         "id": "pt7s-w4ni",
         "rows": 33,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/pt7s-w4ni",
@@ -120,6 +132,7 @@
         "topic": "Crime"
     },
     "robbery_rate": {
+        "full_name": "Robbery Rate",
         "id": "gh69-tn4n",
         "rows": 33,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/gh69-tn4n",
@@ -130,6 +143,7 @@
         "topic": "Crime"
     },
     "burglary_rate": {
+        "full_name": "Burglary Rate",
         "id": "cv9i-da8q",
         "rows": 33,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/cv9i-da8q",
@@ -140,6 +154,7 @@
         "topic": "Crime"
     },
     "assault_rate": {
+        "full_name": "Aggravated Assault Rate",
         "id": "vp5v-7z2p",
         "rows": 33,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/vp5v-7z2p",
@@ -150,6 +165,7 @@
         "topic": "Crime"
     },
     "theft_rate": {
+        "full_name": "Larceny-Theft Rate",
         "id": "r97p-ax5c",
         "rows": 33,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/r97p-ax5c",
@@ -160,6 +176,7 @@
         "topic": "Crime"
     },
     "crime_15_22": {
+        "full_name": "Crime Level Data",
         "id": "bc88-hemr",
         "rows": 311425,
         "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/bc88-hemr",
@@ -170,6 +187,7 @@
         "topic": "Crime"
     },
     "officer_shootings": {
+        "full_name": "Officer Involved Shootings",
         "id": "pzyt-rvyq",
         "rows": 112,
         "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/pzyt-rvyq",
@@ -180,6 +198,7 @@
         "topic": "Crime"
     },
     "arrest_demographics": {
+        "full_name": "Arrest Data with all Offenses and Demographic Detail",
         "id": "jw9n-x43p",
         "rows": 209008,
         "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/jw9n-x43p",
@@ -190,6 +209,7 @@
         "topic": "Crime"
     },
     "citations": {
+        "full_name": "Ticket and Citation Data with Charges",
         "id": "a4wa-a9rs",
         "rows": 431895,
         "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/a4wa-a9rs",
@@ -200,6 +220,7 @@
         "topic": "Crime"
     },
     "officer_shooting_incidents": {
+        "full_name": "Officer Involved Shootings Incident Level View",
         "id": "nrtf-ceq2",
         "rows": 57,
         "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/nrtf-ceq2",
@@ -210,6 +231,7 @@
         "topic": "Crime"
     },
     "use_of_force": {
+        "full_name": "Use of Force Reports",
         "id": "ii9t-cvd6",
         "rows": 2122,
         "web_url": "https://dev.socrata.com/foundry/policedata.coloradosprings.gov/ii9t-cvd6",
@@ -220,6 +242,7 @@
         "topic": "Crime"
     },
     "fcollins_crime_totals": {
+        "full_name": "Fort Collins UCR Crime Totals",
         "id": "c2i2-fbh4",
         "rows": 10,
         "web_url": "https://dev.socrata.com/foundry/opendata.fcgov.com/c2i2-fbh4",
@@ -230,6 +253,7 @@
         "topic": "Crime"
     },
     "district_homeless_student": {
+        "full_name": "District Total Homeless Student Mobility Rate",
         "id": "vakp-8ans",
         "rows": 184,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/vakp-8ans",
@@ -240,6 +264,7 @@
         "topic": "Education"
     },
     "degrees_awarded": {
+        "full_name": "degreesAwarded",
         "id": "m279-sgtm",
         "rows": 221941,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/m279-sgtm",
@@ -248,5 +273,27 @@
         "base_url": "data.colorado.gov",
         "type": "Records",
         "topic": "Education"
+    },
+    "enrollment_demographics": {
+        "full_name": "Enrollment Demographics for Post-Secondary Graduates in Colorado",
+        "id": "p8m4-v33g",
+        "rows": 191108,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/p8m4-v33g",
+        "date_range": [2001, 2017],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Records",
+        "topic": "Education"
+    },
+    "county_demographics": {
+        "full_name": "Census Counties in Colorado 2019",
+        "id": "8j3i-rjn4",
+        "rows": 64,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/8j3i-rjn4",
+        "date_range": [2019, 2019],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Aggregate",
+        "topic": "Other"
     }
 }

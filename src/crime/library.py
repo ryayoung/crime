@@ -62,6 +62,7 @@ class Library(object, metaclass=MetaLibrary):
                 'Type': v.get('type', np.NaN),
                 'From': v.get('date_range', [np.NaN, np.NaN])[0],
                 'To': v.get('date_range', [np.NaN, np.NaN])[1],
+                'Full Name': v.get('full_name', np.NaN),
                 'URL': v.get('web_url', np.NaN),
             } for k, v in cls.data.items()
         ]).set_index('Name')
