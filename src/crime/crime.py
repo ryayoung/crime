@@ -1,6 +1,5 @@
 # Maintainer:     Ryan Young
 # Last Modified:  May 06, 2022
-from sodapy import Socrata
 import requests
 import pandas as pd
 import json

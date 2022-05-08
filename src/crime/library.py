@@ -2,6 +2,7 @@
 # Last Modified:  May 05, 2022
 import requests
 import pandas as pd
+import numpy as np
 
 class MetaLibrary(type):
     """
@@ -55,11 +56,12 @@ class Library(object, metaclass=MetaLibrary):
         return pd.DataFrame([
             {
                 'Name': k,
-                'Location': v['location'],
-                'Rows': v['rows'],
-                'Type': v['type'],
-                'From': v['date_range'][0],
-                'To': v['date_range'][1],
-                'URL': v['web_url']
+                'Topic': v.get('topic', np.NaN),
+                'Location': v.get('location', np.NaN),
+                'Rows': v.get('rows', np.NaN),
+                'Type': v.get('type', np.NaN),
+                'From': v.get('date_range', [np.NaN, np.NaN])[0],
+                'To': v.get('date_range', [np.NaN, np.NaN])[1],
+                'URL': v.get('web_url', np.NaN),
             } for k, v in cls.data.items()
         ]).set_index('Name')
