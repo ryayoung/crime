@@ -1,5 +1,5 @@
 # Maintainer:     Ryan Young
-# Last Modified:  May 05, 2022
+# Last Modified:  May 08, 2022
 import requests
 import pandas as pd
 import numpy as np
@@ -45,6 +45,7 @@ class Library(object, metaclass=MetaLibrary):
     _data = None # default sources
     _user_data = None # user-defined sources
     _cache = dict()
+    _meta_cache = dict()
 
     # Try to load default sources online
     try:
@@ -128,3 +129,23 @@ Must provide a dict of dicts. Example:
         """
         return cls._cache.get(name, pd.DataFrame()).copy()
 
+
+    @classmethod
+    def meta_cache_add(cls, name, meta) -> bool:
+        """
+        Adds metadata for particular dataset to cache
+        """
+
+        if name not in cls._meta_cache:
+            cls._meta_cache[name] = meta
+            return True
+
+        return False
+    
+
+    @classmethod
+    def meta_cache_get(cls, name) -> dict:
+        """
+        Returns metadata stored in cache
+        """
+        return cls._meta_cache.get(name, None)

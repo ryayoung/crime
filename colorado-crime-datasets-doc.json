@@ -262,5 +262,16 @@
         "base_url": "data.colorado.gov",
         "type": "Aggregate",
         "topic": "Other"
+    },
+    "race_estimates": {
+        "full_name": "Race Estimates in Colorado",
+        "id": "wv7f-qjj7",
+        "rows": 968704,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/wv7f-qjj7",
+        "date_range": [2010, 2016],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Records",
+        "topic": "Other"
     }
 }
