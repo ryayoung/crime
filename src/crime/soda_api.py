@@ -19,18 +19,33 @@ class Soda:
     alt_token:str = None
 
     @classmethod
-    def client(cls, base_url:str) -> Socrata:
+    def client_get(cls, base_url, data_id, **kwargs):
         """
-        Returns a Socrata api object and the token. Don't
-        worry, it's okay if cls.token is None. The Socrata
-        object expects both of these positional variables,
-        even if a token isn't being declared.
+        Try to make request. If request fails, try with alt token
         """
-        return Socrata(base_url, cls.token)
+        try:
+            client = Socrata(base_url, cls.token)
+            return client.get(data_id, **kwargs)
+        except Exception as e:
+            client = Socrata(base_url, cls.alt_token)
+            return client.get(data_id, **kwargs)
 
 
     @classmethod
-    def get(cls, base_url:str, data_id:str, full=False, **kwargs) -> pd.DataFrame:
+    def client_get_metadata(cls, base_url, data_id, content_type):
+        """
+        Try to make request. If request fails, try with alt token
+        """
+        try:
+            client = Socrata(base_url, cls.token)
+            return client.get_metadata(data_id, content_type)
+        except Exception as e:
+            client = Socrata(base_url, cls.alt_token)
+            return client.get_metadata(data_id, content_type)
+
+
+    @classmethod
+    def get(cls, base_url:str, data_id:str, full=False, suppress_warning=False, **kwargs) -> pd.DataFrame:
         """
         Creates a Socrata client using base url, and then
         retrieves data with data_id, passing any additional kwargs
@@ -41,16 +56,15 @@ class Soda:
         if 'limit' not in kwargs:
             if full == False:
                 limit = 5
-                print("Pass 'full=True' to get full dataset.")
+                if suppress_warning == False:
+                    print("Pass 'full=True' to get full dataset.")
             else:
                 limit = 10_000_000
 
-        client = cls.client(base_url)
-
         if 'limit' in kwargs:
-            data = client.get(data_id, **kwargs)
+            data = cls.client_get(base_url, data_id, **kwargs)
         else:
-            data = client.get(data_id, limit=limit, **kwargs)
+            data = cls.client_get(base_url, data_id, limit=limit, **kwargs)
 
         return pd.DataFrame.from_records(data)
 
@@ -62,36 +76,11 @@ class Soda:
         and returns the dataset's metadata as a dictionary, instead
         of dataframe.
         """
-        client = cls.client(base_url)
-
         try:
-            data = client.get_metadata(data_id, content_type)
+            data = cls.client_get_metadata(base_url, data_id, content_type)
         except Exception as e:
             print("INVALID ID")
             return
 
         return dict(data)
-    
-
-    @classmethod
-    def datasets(cls, base_url:str, fmt="df", **kwargs) -> pd.DataFrame or list:
-        """
-        Retrieves metadata on all datasets within a given domain.
-        """
-        client = cls.client(base_url)
-
-        try:
-            data = client.datasets(**kwargs)
-        except Exception as e:
-            print("INVALID DOMAIN")
-            return
-
-        if fmt == "df":
-            return pd.DataFrame.from_records(data)
-        elif fmt == "dict":
-            return [dict(d) for d in data]
-        else:
-            raise ValueError("Invalid 'fmt' attribute. Choose 'dict' or 'df'.")
-
-
 

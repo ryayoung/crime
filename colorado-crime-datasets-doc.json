@@ -87,94 +87,6 @@
         "type": "Aggregate",
         "topic": "Crime"
     },
-    "vehicle_theft": {
-        "full_name": "Motor Vehicle Theft Rate",
-        "id": "in39-n8j5",
-        "rows": 33,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/in39-n8j5",
-        "date_range": [1980, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Crime"
-    },
-    "violent_crime": {
-        "full_name": "Violent Crime Rate",
-        "id": "kef6-x39y",
-        "rows": 33,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/kef6-x39y",
-        "date_range": [1980, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Crime"
-    },
-    "murder_rate": {
-        "full_name": "Murder and Non-Negligent Manslaughter Rate",
-        "id": "5bjt-dgty",
-        "rows": 33,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/5bjt-dgty",
-        "date_range": [1980, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Crime"
-    },
-    "rape_rate": {
-        "full_name": "Forcible Rape Rate",
-        "id": "pt7s-w4ni",
-        "rows": 33,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/pt7s-w4ni",
-        "date_range": [1980, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Crime"
-    },
-    "robbery_rate": {
-        "full_name": "Robbery Rate",
-        "id": "gh69-tn4n",
-        "rows": 33,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/gh69-tn4n",
-        "date_range": [1980, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Crime"
-    },
-    "burglary_rate": {
-        "full_name": "Burglary Rate",
-        "id": "cv9i-da8q",
-        "rows": 33,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/cv9i-da8q",
-        "date_range": [1980, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Crime"
-    },
-    "assault_rate": {
-        "full_name": "Aggravated Assault Rate",
-        "id": "vp5v-7z2p",
-        "rows": 33,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/vp5v-7z2p",
-        "date_range": [1980, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Crime"
-    },
-    "theft_rate": {
-        "full_name": "Larceny-Theft Rate",
-        "id": "r97p-ax5c",
-        "rows": 33,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/r97p-ax5c",
-        "date_range": [1980, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Crime"
-    },
     "crime_15_22": {
         "full_name": "Crime Level Data",
         "id": "bc88-hemr",
@@ -296,33 +208,11 @@
         "type": "Aggregate",
         "topic": "Education"
     },
-    "dist_disability_grad_rate": {
-        "full_name": "Students with Disabilities Graduation Rate by District",
+    "dist_grad_rate": {
+        "full_name": "Gifted, Disabled, and Title 1 Student Graduation Rate by District",
         "id": "aze8-926p",
         "rows": 185,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/aze8-926p",
-        "date_range": [2011, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Education"
-    },
-    "dist_gifted_grad_rate": {
-        "full_name": "Gifted-Talented Graduation Rate",
-        "id": "ke93-phxi",
-        "rows": 185,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/ke93-phxi",
-        "date_range": [2011, 2012],
-        "location": "Colorado",
-        "base_url": "data.colorado.gov",
-        "type": "Aggregate",
-        "topic": "Education"
-    },
-    "dist_title1_grad_rate": {
-        "full_name": "Title 1 Graduation Rate by District",
-        "id": "269u-fgxi",
-        "rows": 185,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/269u-fgxi",
         "date_range": [2011, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
