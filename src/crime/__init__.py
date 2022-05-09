@@ -4,6 +4,7 @@ from crime.crime import (
     set_token,
     sources,
     load,
+    df,
     set_sources,
     reset_sources,
     set_top_secret_token,

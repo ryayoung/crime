@@ -44,6 +44,7 @@ class Library(object, metaclass=MetaLibrary):
     _url = "https://raw.githubusercontent.com/ryayoung/crime/main/colorado-crime-datasets-doc.json"
     _data = None # default sources
     _user_data = None # user-defined sources
+    _cache = dict()
 
     # Try to load default sources online
     try:
@@ -105,3 +106,25 @@ Must provide a dict of dicts. Example:
                 'URL': v.get('web_url', np.NaN),
             } for k, v in cls.data.items()
         ]).set_index('Name')
+    
+
+    @classmethod
+    def cache_add(cls, name, df) -> bool:
+        """
+        Adds a fully loaded dataframe to cache
+        """
+
+        if name not in cls._cache:
+            cls._cache[name] = df
+            return True
+
+        return False
+    
+
+    @classmethod
+    def cache_get(cls, name) -> pd.DataFrame:
+        """
+        Returns dataframe stored in cache
+        """
+        return cls._cache.get(name, pd.DataFrame()).copy()
+

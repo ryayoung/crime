@@ -125,6 +125,10 @@ def load(name:str, **kwargs) -> pd.DataFrame:
     """
     if name not in Library.data:
         return
+    
+    df = Library.cache_get(name)
+    if not df.empty:
+        return df
 
     if Soda.token == None:
         print("Use 'cr.set_token(my_app_token)' to get full api access and avoid this warning")
@@ -134,9 +138,18 @@ def load(name:str, **kwargs) -> pd.DataFrame:
     data_id = info['id']
 
     try:
-        return Soda.get(base_url, data_id, **kwargs)
+        df = Soda.get(base_url, data_id, **kwargs)
+        if kwargs.get('full', False) == True:
+            Library.cache_add(name, df)
+        return df
     except Exception as e:
         print(e)
+
+
+
+def df(name:str) -> pd.DataFrame:
+    return Library.cache_get(name)
+
 
 
 def set_sources(data:dict):

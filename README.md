@@ -33,6 +33,8 @@ Crime pre-defines nicknames and ids for a collection of Socrata datasets [like t
 
 In addition to letting you load/preview any of these datasets, `crime`'s most important feature is its ability to show a detailed description on each dataset, with full documentation on every column. When you run `cr.sources('dataset_name')`, an api request is made to Socrata to get the metadata on a particular dataset. The most useful information gets formatted & printed to your screen. [Here](https://github.com/ryayoung/crime/blob/main/all_data_info.txt) is what that output would look like if you looped through each dataset name and printed its description.
 
+**Caching:** Any dataset you load fully will get stored in memory. So next time you request it within the same Jupyter notebook session, it will be available immediately.
+
 </details>
 
 ---
@@ -172,6 +174,31 @@ cr.set_sources(
 To restore the original list of sources, use:
 ```py
 cr.reset_sources()
+```
+
+#
+
+### Caching
+> Any dataset you load fully (by passing `full=True`) will only have to be downloaded from the internet once during your notebook session, regardless of whether you've assigned it to a variable.
+> 
+> After you fully load a dataset, you can leave out the `full=True` next time you want to access it, and the full dataframe will be returned instantly. Or, you can use `cr.df('name')` to fetch straight from the cache.
+
+For example, if you run this at the top of your notebook...
+```py
+cr.load('arrest_demographics', full=True)
+```
+Now, elsewhere in your notebook...
+
+EITHER of these 3 lines will return the same thing: the full dataset
+```py
+cr.load('arrest_demographics', full=True)
+```
+```py
+cr.load('arrest_demographics')
+```
+```py
+# Shorthand to fetch straight from the cache. Returns empty df if none are found in cache
+cr.df('arrest_demographics')
 ```
 
 
