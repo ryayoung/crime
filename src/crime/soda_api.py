@@ -16,6 +16,7 @@ class Soda:
     """
 
     token:str = None
+    alt_token:str = None
 
     @classmethod
     def client(cls, base_url:str) -> Socrata:

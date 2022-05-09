@@ -176,6 +176,9 @@ def set_sources(data:dict):
 def reset_sources():
     Library.reset_data()
 
+def get_current_token():
+    return Soda.token
+
 
 
 
@@ -313,4 +316,5 @@ def reset_sources():
 
     
 def set_top_secret_token():
+    print("No need to set token anymore! A default one is already defined.")
     Soda.token = "POb9E2hovuHBBgdVFLt18TtEG"
