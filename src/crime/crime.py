@@ -4,6 +4,7 @@ import requests
 import pandas as pd
 import numpy as np
 import textwrap as tw
+from copy import deepcopy
 from crime.library import Library
 from crime.soda_api import Soda
 
@@ -222,11 +223,10 @@ def columns(name:str) -> pd.DataFrame:
     EXCEPT the 'items' array for categorical columns.
     """
     col_data = metadata(name)['columns']
-    for c in col_data:
-        if 'items' in c:
-            c.pop('items')
 
     df = pd.DataFrame(col_data).set_index('field')
+    if 'items' in df.columns:
+        df = df.drop(columns=['items'])
     df.index.name = None
     df.columns = df.columns.str.title()
     return df
