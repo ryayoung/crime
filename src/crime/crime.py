@@ -2,8 +2,8 @@
 # Last Modified:  May 06, 2022
 import requests
 import pandas as pd
-import json
-import time
+import numpy as np
+import textwrap as tw
 from crime.library import Library
 from crime.soda_api import Soda
 
@@ -74,18 +74,30 @@ def sources(name:str = None) -> pd.DataFrame or None:
         if Soda.token == None:
             print("Use 'cr.set_token(my_app_token)' to get full api access and avoid this warning")
 
+        # Basic info already stored in Library, but not in metadata
         info = Library.data[name]
-        base_url = info['base_url']
-        data_id = info['id']
-        web_url = info.get('web_url', "")
+        # Socrata metadata
+        data = Soda.get_metadata(info['base_url'], info['id'])
 
-        data = Soda.get_metadata(base_url, data_id)
-        # print(json.dumps(data, indent=2))
-        # return
+        web_url = info.get('web_url', None)
+        rows = info.get('rows', None)
+        num_columns = len(data['columns'])
+        from_yr = info.get('date_range', [np.NaN, np.NaN])[0]
+        to_yr = info.get('date_range', [np.NaN, np.NaN])[1]
+
         print(data['name'])
-        print(web_url)
+        if web_url:
+            print(web_url, "\n")
+        # Wrap description text at 70 characters. (tw.wrap returns a list)
+        print(*tw.wrap(data['description'], width=70), sep="\n")
         print()
-        print(data['description'])
+        # These likely won't be present if the user defined their own sources
+        if rows:
+            print(f"Rows:    {rows}")
+        if num_columns:
+            print(f"Columns: {num_columns}")
+        if from_yr and to_yr:
+            print(f"Period:  {from_yr} to {to_yr}")
         print()
         print("COLUMNS:")
         print("-------")
@@ -96,14 +108,20 @@ def sources(name:str = None) -> pd.DataFrame or None:
             print(f"  Type:   {c['dataTypeName']}")
             print(f"  Null:   {cached.get('null', '-')}")
             print(f"  Count:  {cached.get('non_null', '-')}")
+
+            # If it's numeric, print stats.
             if c['dataTypeName'] == 'number':
                 print(f"  Avg:    {cached.get('average', '-')}")
                 print(f"  Max:    {cached.get('largest', '-')}")
                 print(f"  Min:    {cached.get('smallest', '-')}")
                 print(f"  Sum:    {cached.get('sum', '-')}")
-            else:
+
+            # If it's a text column, print top items and their frequencies
+            elif c['dataTypeName'] == 'text':
                 cached = c.get('cachedContents', {})
                 if len(cached.get('top', [])) > 1:
+                    # Don't print text variables that aren't actually categorical (such as IDs)
+                    # To validate, make sure the first couple characters aren't numbers
                     if not str(cached.get('top')[1]['item'])[0:1].isdigit():
                         print("  ITEMS:")
                         for i in c.get('cachedContents', {}).get('top', []):

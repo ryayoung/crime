@@ -21,7 +21,7 @@
         "type": "Records",
         "topic": "Crime"
     },
-    "district_arrests": {
+    "dist_arrests": {
         "full_name": "Crime Arrests by Police District 2001-2016 in Colorado",
         "id": "2e5i-5hfy",
         "rows": 93114,
@@ -32,7 +32,7 @@
         "type": "Records",
         "topic": "Crime"
     },
-    "district_crime": {
+    "dist_crime": {
         "full_name": "Crime Offenses by Police District 2001-2016 in Colorado",
         "id": "ya69-n6ta",
         "rows": 78843,
@@ -252,15 +252,15 @@
         "type": "Aggregate",
         "topic": "Crime"
     },
-    "district_homeless_student": {
-        "full_name": "District Total Homeless Student Mobility Rate",
-        "id": "vakp-8ans",
-        "rows": 184,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/vakp-8ans",
-        "date_range": [2011, 2012],
+    "school_programs": {
+        "full_name": "School Programs in Colorado",
+        "id": "jnj7-fw37",
+        "rows": 9946,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/jnj7-fw37",
+        "date_range": [2019, 2019],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
-        "type": "Aggregate",
+        "type": "Records",
         "topic": "Education"
     },
     "degrees_awarded": {
@@ -285,12 +285,89 @@
         "type": "Records",
         "topic": "Education"
     },
+    "dist_homeless_student": {
+        "full_name": "District Total Homeless Student Mobility Rate",
+        "id": "vakp-8ans",
+        "rows": 184,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/vakp-8ans",
+        "date_range": [2011, 2012],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Aggregate",
+        "topic": "Education"
+    },
+    "dist_disability_grad_rate": {
+        "full_name": "Students with Disabilities Graduation Rate by District",
+        "id": "aze8-926p",
+        "rows": 185,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/aze8-926p",
+        "date_range": [2011, 2012],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Aggregate",
+        "topic": "Education"
+    },
+    "dist_gifted_grad_rate": {
+        "full_name": "Gifted-Talented Graduation Rate",
+        "id": "ke93-phxi",
+        "rows": 185,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/ke93-phxi",
+        "date_range": [2011, 2012],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Aggregate",
+        "topic": "Education"
+    },
+    "dist_title1_grad_rate": {
+        "full_name": "Title 1 Graduation Rate by District",
+        "id": "269u-fgxi",
+        "rows": 185,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/269u-fgxi",
+        "date_range": [2011, 2012],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Aggregate",
+        "topic": "Education"
+    },
+    "dist_math_scores": {
+        "full_name": "2013 TCAP School and District Summary Results - Mathematics (Grades 3 - 10)",
+        "id": "cudh-kv54",
+        "rows": 7249,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/cudh-kv54",
+        "date_range": [2013, 2013],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Aggregate",
+        "topic": "Education"
+    },
     "county_demographics": {
         "full_name": "Census Counties in Colorado 2019",
         "id": "8j3i-rjn4",
         "rows": 64,
         "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/8j3i-rjn4",
         "date_range": [2019, 2019],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Aggregate",
+        "topic": "Other"
+    },
+    "hours_worked": {
+        "full_name": "Hours Worked by Employees in Colorado",
+        "id": "pt2g-89wc",
+        "rows": 139039,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/pt2g-89wc",
+        "date_range": [1990, 2021],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Records",
+        "topic": "Other"
+    },
+    "county_population": {
+        "full_name": "Population Colorado",
+        "id": "eeah-cmy8",
+        "rows": 381504,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/eeah-cmy8",
+        "date_range": [1990, 2040],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
         "type": "Aggregate",
