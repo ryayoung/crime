@@ -153,27 +153,14 @@ cr.load('arrest_demographics', full=True)
 
 #
 
-#### How to define your own set of data sources.
-> First, select a dataset on [OpenDataNetwork](https://www.opendatanetwork.com/) and hit "View API". If you're brought to an API page [like this one](https://dev.socrata.com/foundry/data.colorado.gov/4ykn-tg5h), (not all datasets have one), locate the "Dataset Identifier" on top-right side of page. Use that as `id`. For `base_url`, use the section of the url that comes after `/foundry/`.
+### Get more info on a source
+Return dictionary with full metadata
 ```py
-# Pass a dictionary
-cr.set_sources(
-    {
-        'district_arrests': { # this is the nickname you'll refer to
-            "id": "2e5i-5hfy",
-            "base_url": "data.colorado.gov"
-        },
-        'district_crime': {
-            "id": "ya69-n6ta",
-            "base_url": "data.colorado.gov"
-        },
-        # etc...
-    }
-)
+cr.metadata('dataset_name')
 ```
-To restore the original list of sources, use:
+Return dataframe with metrics on each column
 ```py
-cr.reset_sources()
+cr.columns('dataset_name')
 ```
 
 #
@@ -200,6 +187,32 @@ cr.load('arrest_demographics')
 # Shorthand to fetch straight from the cache. Returns empty df if none are found in cache
 cr.df('arrest_demographics')
 ```
+
+#
+
+### How to define your own set of data sources.
+> First, select a dataset on [OpenDataNetwork](https://www.opendatanetwork.com/) and hit "View API". If you're brought to an API page [like this one](https://dev.socrata.com/foundry/data.colorado.gov/4ykn-tg5h), (not all datasets have one), locate the "Dataset Identifier" on top-right side of page. Use that as `id`. For `base_url`, use the section of the url that comes after `/foundry/`.
+```py
+# Pass a dictionary
+cr.set_sources(
+    {
+        'district_arrests': { # this is the nickname you'll refer to
+            "id": "2e5i-5hfy",
+            "base_url": "data.colorado.gov"
+        },
+        'district_crime': {
+            "id": "ya69-n6ta",
+            "base_url": "data.colorado.gov"
+        },
+        # etc...
+    }
+)
+```
+To restore the original list of sources, use:
+```py
+cr.reset_sources()
+```
+
 
 
 <br>
