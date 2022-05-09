@@ -8,8 +8,9 @@ from crime.crime import (
     columns,
     load,
     df,
-    set_sources,
+    add_source,
     reset_sources,
+    clear_sources,
     get_current_token,
     set_top_secret_token,
 )

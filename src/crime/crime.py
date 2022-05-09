@@ -1,5 +1,5 @@
 # Maintainer:     Ryan Young
-# Last Modified:  May 08, 2022
+# Last Modified:  May 09, 2022
 import requests
 import pandas as pd
 import numpy as np
@@ -8,11 +8,11 @@ from copy import deepcopy
 from crime.library import Library
 from crime.soda_api import Soda
 
-# Declare your app token (optional, recommended)
-# >>> cr.set_token("XXXXXXX")
 
 def help():
-    print("""DataFrame with info on all datasets:
+    print("""Docs: https://pypi.org/project/crime/
+
+DataFrame with info on all datasets:
 >>> cr.sources()
 
 Details on a dataset, and description of all columns
@@ -24,19 +24,8 @@ Quickly preview its first 5 rows
 Load full dataset
 >>> cr.load('dataset_name', full=True)
 
-Declare your own collection of sources (pass a dictionary)
->>> cr.set_sources({
-        'district_arrests': { # this is the nickname you'll refer to
-            "id": "2e5i-5hfy",
-            "base_url": "data.colorado.gov"
-        },
-        'district_crime': {
-            "id": "ya69-n6ta",
-            "base_url": "data.colorado.gov"
-        },
-        # etc...
-    }
-)
+Add a new source
+>>> cr.add_source("some_nickname", "some_id", "base_url")
 
 Revert to using the default sources
 >>> cr.reset_sources()
@@ -207,6 +196,7 @@ def sources(name:str = None) -> pd.DataFrame or None:
 
             # If it's a text column, print top items and their frequencies
             elif c['type'] == 'text':
+                print("  ITEMS:")
                 for i in c['items']:
                     count = f"{int(i['count']):,}" if i['count'] else '-'
                     print(f"     {i['item']}  ({count})")
@@ -269,13 +259,14 @@ def load(name:str, **kwargs) -> pd.DataFrame:
 def df(name:str) -> pd.DataFrame:
     return Library.cache_get(name)
 
-
-
-def set_sources(data:dict):
-    Library.set_data(data)
+def add_source(*args, **kwargs):
+    Library.add_data(*args, **kwargs)
 
 def reset_sources():
     Library.reset_data()
+
+def clear_sources():
+    Library.clear_data()
 
 def get_current_token():
     return Soda.token

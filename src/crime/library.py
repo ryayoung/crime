@@ -1,33 +1,35 @@
 # Maintainer:     Ryan Young
-# Last Modified:  May 08, 2022
+# Last Modified:  May 09, 2022
 import requests
 import pandas as pd
 import numpy as np
+from copy import deepcopy
 
 class MetaLibrary(type):
     """
-    This is my solution to effectively applying the property
-    decorator to class variables. This allows us to execute
-    logic when the Library's variables are accessed. In this
-    case, the 'data' variable won't be loaded with online api
-    data until the variable is actually accessed for the first
-    time. That way we aren't sending unnecessary api requests
-    when the user doesn't need us to.
+    This is my solution to applying property decorator to class
+    variables. This allows us to execute logic when the Library's
+    variables are accessed. In this case, the 'data' variable
+    won't be loaded with online api data until the variable
+    is actually accessed for the first time. That way we aren't
+    sending unnecessary api requests when the user doesn't need us to.
     """
 
     @property
     def data(cls):
-        if cls._user_data != None:
-            return cls._user_data
-
+        """
+        Once user_data is set, cls.data will return user_data UNTIL
+        user_data is set to None, using reset_sources. This 
+        """
         if cls._data == None:
             try:
                 cls._data = dict(requests.get(cls._url).json())
+                cls._default_data = deepcopy(cls._data)
             except Exception as e:
                 print("Can't find crime library sources.\nEither you don't have internet, or Github's API isn't working.")
-                return
+                return dict()
+
         return cls._data
-    
 
     @property
     def url(cls):
@@ -42,49 +44,49 @@ class Library(object, metaclass=MetaLibrary):
     """
 
     _url = "https://raw.githubusercontent.com/ryayoung/crime/main/colorado-crime-datasets-doc.json"
+    _default_data = None
     _data = None # default sources
-    _user_data = None # user-defined sources
     _cache = dict()
     _meta_cache = dict()
 
     # Try to load default sources online
     try:
         _data = dict(requests.get(_url).json())
+        _default_data = deepcopy(_data)
     except Exception as e:
         _data = None
-    
+        _default_data = None
+
 
     @classmethod
-    def set_data(cls, data:dict):
-        if type(data) != dict:
-            raise ValueError("""
-Must provide a dict of dicts. Example:
-{
-    "my_dataset_1": {
-        "id": "ab3c-e4gh",
-        "base_url": "data.colorado.gov"
-    },
-    "my_dataset_2": {
-        "id": "..."
-        "base_url": "..."
-    },
-    etc...
-}""")
+    def add_data(cls, name, id, base_url, **kwargs):
+        """
+        Append new row to library data
+        """
+        date_range = [np.NaN, np.NaN]
 
-        for k, v in data.items():
-            if type(v) != dict:
-                raise ValueError(f"The value of '{k}' must be a dict with at least two items, 'id' and 'base_url'")
-            if "id" not in v:
-                raise ValueError(f"Item '{k}' must contain an 'id' element.")
-            if "base_url" not in v:
-                raise ValueError(f"Item '{k}' must contain a 'base_url' element.")
-            
-        cls._user_data = data
-    
+        if "from_year" in kwargs:
+            date_range[0] = kwargs.pop('from_year')
+            kwargs['date_range'] = date_range
+
+        if "to_year" in kwargs:
+            date_range[1] = kwargs.pop('to_year')
+            kwargs['date_range'] = date_range
+
+        new = {name: {"id": id, "base_url": base_url, **kwargs}}
+        cls.data.update(new)
+
 
     @classmethod
     def reset_data(cls):
-        cls._user_data = None
+        if cls._default_data != None:
+            cls._data = deepcopy(cls._default_data)
+        else:
+            cls._data = dict(requests.get(cls._url).json())
+
+    @classmethod
+    def clear_data(cls):
+        cls._data = dict()
 
 
     @classmethod
@@ -94,7 +96,11 @@ Must provide a dict of dicts. Example:
         as a pandas dataframe, including only the important fields,
         and excluding base_url and id.
         """
-        return pd.DataFrame([
+        if cls.data == dict():
+            # we already know cls.data can't return None bcas of metaclass
+            return pd.DataFrame()
+
+        df = pd.DataFrame([
             {
                 'Name': k,
                 'Topic': v.get('topic', np.NaN),
@@ -104,9 +110,11 @@ Must provide a dict of dicts. Example:
                 'From': v.get('date_range', [np.NaN, np.NaN])[0],
                 'To': v.get('date_range', [np.NaN, np.NaN])[1],
                 'Full Name': v.get('full_name', np.NaN),
-                'URL': v.get('web_url', np.NaN),
+                'Web URL': v.get('web_url', np.NaN),
             } for k, v in cls.data.items()
         ]).set_index('Name')
+        df.index.name = None
+        return df
     
 
     @classmethod
@@ -127,7 +135,7 @@ Must provide a dict of dicts. Example:
         """
         Returns dataframe stored in cache
         """
-        return cls._cache.get(name, pd.DataFrame()).copy()
+        return cls._cache.get(name, pd.DataFrame()).copy(deep=True)
 
 
     @classmethod

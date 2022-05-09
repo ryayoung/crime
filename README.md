@@ -176,7 +176,7 @@ cr.load('arrest_demographics', full=True)
 ```
 Now, elsewhere in your notebook...
 
-EITHER of these 3 lines will return the same thing: the full dataset
+EITHER of these 3 lines will return the same thing: a COPY of the full dataset, returned instantly
 ```py
 cr.load('arrest_demographics', full=True)
 ```
@@ -190,30 +190,24 @@ cr.df('arrest_demographics')
 
 #
 
-### How to define your own set of data sources.
+### Add/Modify Sources
 > First, select a dataset on [OpenDataNetwork](https://www.opendatanetwork.com/) and hit "View API". If you're brought to an API page [like this one](https://dev.socrata.com/foundry/data.colorado.gov/4ykn-tg5h), (not all datasets have one), locate the "Dataset Identifier" on top-right side of page. Use that as `id`. For `base_url`, use the section of the url that comes after `/foundry/`.
 ```py
-# Pass a dictionary
-cr.set_sources(
-    {
-        'district_arrests': { # this is the nickname you'll refer to
-            "id": "2e5i-5hfy",
-            "base_url": "data.colorado.gov"
-        },
-        'district_crime': {
-            "id": "ya69-n6ta",
-            "base_url": "data.colorado.gov"
-        },
-        # etc...
-    }
-)
+cr.add_source("crime_rates", "mb89-xnkg", "data.colorado.gov")
 ```
+> You can pass any additional values as keyword arguments. Valid ones include `rows`, `full_name`, `web_url`, `from_year`, `to_year`, `location`, `type`, and `topic`.
+
 To restore the original list of sources, use:
 ```py
 cr.reset_sources()
 ```
 
+Clear sources; start with a blank slate
+```py
+cr.clear_sources()
+```
 
+#
 
 <br>
 
