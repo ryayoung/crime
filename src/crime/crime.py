@@ -196,7 +196,8 @@ def sources(name:str = None) -> pd.DataFrame or None:
 
             # If it's a text column, print top items and their frequencies
             elif c['type'] == 'text':
-                print("  ITEMS:")
+                if len(c['items']) > 0:
+                    print("  ITEMS:")
                 for i in c['items']:
                     count = f"{int(i['count']):,}" if i['count'] else '-'
                     print(f"     {i['item']}  ({count})")
