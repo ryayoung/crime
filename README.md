@@ -78,42 +78,48 @@ cr.sources('crime_vs_incarceration')
 
 ```text
 Total Crime Rate vs Incarceration Rate Chart
-https://dev.socrata.com/foundry/data.colorado.gov/ae3x-wvn9
+https://dev.socrata.com/foundry/data.colorado.gov/ae3x-wvn9 
 
-Total Crime includes: Violent crimes- Murder and non-negligent manslaughter, 
-forcible rape, robbery, and aggravated assault. Property crimes - Burglary,
-larceny/theft, and motor vehicle theft. National or state offense totals are
-based on data from all reporting agencies and estimates for unreported areas.
-Rates are the number of reported offenses per 100,000 population. These
-figures are based on end of calendar year populations.
+Total Crime includes: Violent crimes- Murder and non-negligent
+manslaughter, forcible rape, robbery, and aggravated assault. Property
+crimes - Burglary, larceny/theft, and motor vehicle theft. National or
+state offense totals are based on data from all reporting agencies and
+estimates for unreported areas. Rates are the number of reported
+offenses per 100,000 population. These figures are based on end of
+calendar year populations.
+
+Rows:    31
+Cols:    9
+Period:  1982 to 2012
 
 COLUMNS:
 -------
 Year
   Field:  year
   Type:   text
-  Null:   0
+  Null:   -
   Count:  31
 
 Population
   Field:  population
   Type:   number
-  Null:   0
+  Null:   -
   Count:  31
-  Avg:    4019137.064516129
-  Max:    5187582
-  Min:    3045000
-  Sum:    124593249
+  Min:    3,045,000
+  Max:    5,187,582
+  Avg:    4,019,137.06
+  Sum:    124,593,249
 
 Violent Crime Total
   Field:  violent_crime_total
   Type:   number
-  Null:   0
+  Null:   -
   Count:  31
-  Avg:    16445.54838709677
-  Max:    20229
-  Min:    13811
-  Sum:    509812
+  Min:    13,811
+  Max:    20,229
+  Avg:    16,445.55
+  Sum:    509,812
+
 ```
 
 (output is truncated to save space)
@@ -125,13 +131,13 @@ Race
   Field:  race
   Type:   text
   Null:   30
-  Count:  209078
+  Count:  209,241
   ITEMS:
-     White  (164276)
-     Black  (39469)
-     Asian/Pacific Islander  (2216)
-     Unknown  (1901)
-     American Indian/Alaskan Native  (1216)
+     White  (164,446)
+     Black  (39,467)
+     Asian/Pacific Islander  (2,236)
+     Unknown  (1,889)
+     American Indian/Alaskan Native  (1,203)
 ```
 
 # 
@@ -166,9 +172,7 @@ cr.columns('dataset_name')
 #
 
 ### Caching
-> Any dataset you load fully (by passing `full=True`) will only have to be downloaded from the internet once during your notebook session, regardless of whether you've assigned it to a variable.
-> 
-> After you fully load a dataset, you can leave out the `full=True` next time you want to access it, and the full dataframe will be returned instantly. Or, you can use `cr.df('name')` to fetch straight from the cache.
+> Any dataset loaded fully (by passing `full=True`) will be stored in memory, regardless of whether you've assigned it to a variable. Next time you load it, you'll receive a new copy (not a reference) of the data.
 
 For example, if you run this at the top of your notebook...
 ```py
@@ -176,16 +180,16 @@ cr.load('arrest_demographics', full=True)
 ```
 Now, elsewhere in your notebook...
 
-EITHER of these 3 lines will return the same thing: a COPY of the full dataset, returned instantly
+EACH of these 3 lines will return the same thing: a COPY of the full dataset, returned instantly
+```py
+# Shorthand to fetch straight from the cache. Returns empty df if none are found in cache
+cr.df('arrest_demographics')
+```
 ```py
 cr.load('arrest_demographics', full=True)
 ```
 ```py
 cr.load('arrest_demographics')
-```
-```py
-# Shorthand to fetch straight from the cache. Returns empty df if none are found in cache
-cr.df('arrest_demographics')
 ```
 
 #
