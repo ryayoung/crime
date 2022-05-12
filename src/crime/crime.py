@@ -1,35 +1,11 @@
 # Maintainer:     Ryan Young
-# Last Modified:  May 09, 2022
+# Last Modified:  May 10, 2022
 import requests
 import pandas as pd
 import numpy as np
 import textwrap as tw
-from copy import deepcopy
 from crime.library import Library
 from crime.soda_api import Soda
-
-
-def help():
-    print("""Docs: https://pypi.org/project/crime/
-
-DataFrame with info on all datasets:
->>> cr.sources()
-
-Details on a dataset, and description of all columns
->>> cr.sources('dataset_name')
-
-Quickly preview its first 5 rows
->>> cr.load('dataset_name')
-
-Load full dataset
->>> cr.load('dataset_name', full=True)
-
-Add a new source
->>> cr.add_source("some_nickname", "some_id", "base_url")
-
-Revert to using the default sources
->>> cr.reset_sources()
-""")
 
 
 def set_token(token):
@@ -207,6 +183,9 @@ def sources(name:str = None) -> pd.DataFrame or None:
         return
 
 
+# def source(name:str) -> None:
+
+
 def columns(name:str) -> pd.DataFrame:
     """
     Returns dataframe with stats on each column.
@@ -272,7 +251,27 @@ def clear_sources():
 def get_current_token():
     return Soda.token
 
+def help():
+    print("""Docs: https://pypi.org/project/crime/
 
+DataFrame with info on all datasets:
+>>> cr.sources()
+
+Details on a dataset, and description of all columns
+>>> cr.sources('dataset_name')
+
+Quickly preview its first 5 rows
+>>> cr.load('dataset_name')
+
+Load full dataset
+>>> cr.load('dataset_name', full=True)
+
+Add a new source
+>>> cr.add_source("some_nickname", "some_id", "base_url")
+
+Revert to using the default sources
+>>> cr.reset_sources()
+""")
 
 
 

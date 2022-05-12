@@ -1,5 +1,5 @@
 # Maintainer:     Ryan Young
-# Last Modified:  May 06, 2022
+# Last Modified:  May 11, 2022
 from sodapy import Socrata
 import requests
 
@@ -66,7 +66,8 @@ class Soda:
         else:
             data = cls.client_get(base_url, data_id, limit=limit, **kwargs)
 
-        return pd.DataFrame.from_records(data)
+        df = pd.DataFrame.from_records(data)
+
 
 
     @classmethod

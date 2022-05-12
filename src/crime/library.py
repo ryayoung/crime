@@ -1,5 +1,5 @@
 # Maintainer:     Ryan Young
-# Last Modified:  May 09, 2022
+# Last Modified:  May 10, 2022
 import requests
 import pandas as pd
 import numpy as np
@@ -156,4 +156,4 @@ class Library(object, metaclass=MetaLibrary):
         """
         Returns metadata stored in cache
         """
-        return cls._meta_cache.get(name, None)
+        return deepcopy(cls._meta_cache.get(name, None))

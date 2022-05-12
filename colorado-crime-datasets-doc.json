@@ -273,5 +273,16 @@
         "base_url": "data.colorado.gov",
         "type": "Records",
         "topic": "Other"
+    },
+    "drug_abuse_treat_prov": {
+        "full_name": "Substance Use Disorder Treatment Providers - Denver Metro OutPatient",
+        "id": "sc4w-4zeb",
+        "rows": 188,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/sc4w-4zeb",
+        "date_range": [2012, 2012],
+        "location": "Denver",
+        "base_url": "data.colorado.gov",
+        "type": "Records",
+        "topic": "Other"
     }
 }
