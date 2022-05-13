@@ -66,7 +66,24 @@ class Soda:
         else:
             data = cls.client_get(base_url, data_id, limit=limit, **kwargs)
 
+        """
+        The API returns a json where everything is a string. We shouldn't
+        convert that data in Python. That's slow. And we shouldn't make
+        an extra request for metadata to check for columns. That's also slow.
+        Instead do the good old fashioned way with try/except. Let pandas do the work.
+        """
         df = pd.DataFrame.from_records(data)
+        for col in df.columns:
+            # FLOAT?
+            try: df[col] = df[col].astype('float64')
+            except Exception:
+                # DATETIME?
+                try: df[col] = pd.to_datetime(df[col]) # DATETIME?
+                except Exception:
+                    continue
+        return df
+
+
 
 
 
