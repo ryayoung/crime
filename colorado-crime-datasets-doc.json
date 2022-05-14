@@ -230,6 +230,17 @@
         "type": "Aggregate",
         "topic": "Education"
     },
+    "dist_writing_scores": {
+        "full_name": "2013 TCAP School and District Summary Results - Writing (Grades 3 - 10)",
+        "id": "c7er-8zq8",
+        "rows": 7248,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/c7er-8zq8",
+        "date_range": [2013, 2013],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Aggregate",
+        "topic": "Education"
+    },
     "county_demographics": {
         "full_name": "Census Counties in Colorado 2019",
         "id": "8j3i-rjn4",
