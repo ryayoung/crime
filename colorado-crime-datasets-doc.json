@@ -209,10 +209,10 @@
         "topic": "Education"
     },
     "dist_grad_rate": {
-        "full_name": "Gifted, Disabled, and Title 1 Student Graduation Rate by District",
-        "id": "aze8-926p",
+        "full_name": "District Graduation Data by Instructional Program Service type for class of 2011-12",
+        "id": "cfyh-6xxg",
         "rows": 185,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/aze8-926p",
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/cfyh-6xxg",
         "date_range": [2011, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
