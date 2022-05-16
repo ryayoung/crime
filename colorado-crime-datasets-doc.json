@@ -252,7 +252,7 @@
         "type": "Aggregate",
         "topic": "Other"
     },
-    "": {
+    "census_field_desc": {
         "full_name": "Census Field Descriptions",
         "id": "qten-sdpn",
         "rows": 753,
