@@ -197,11 +197,11 @@
         "type": "Records",
         "topic": "Education"
     },
-    "dist_homeless_student": {
-        "full_name": "District Total Homeless Student Mobility Rate",
-        "id": "vakp-8ans",
+    "dist_student_mobility": {
+        "full_name": "District Student Mobility/Stability Statistics for 2011-2012 by Instructional Program/Service Type",
+        "id": "6wcd-ysh5",
         "rows": 184,
-        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/vakp-8ans",
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/6wcd-ysh5",
         "date_range": [2011, 2012],
         "location": "Colorado",
         "base_url": "data.colorado.gov",
@@ -250,6 +250,17 @@
         "location": "Colorado",
         "base_url": "data.colorado.gov",
         "type": "Aggregate",
+        "topic": "Other"
+    },
+    "": {
+        "full_name": "Census Field Descriptions",
+        "id": "qten-sdpn",
+        "rows": 753,
+        "web_url": "https://dev.socrata.com/foundry/data.colorado.gov/qten-sdpn",
+        "date_range": [2019, 2019],
+        "location": "Colorado",
+        "base_url": "data.colorado.gov",
+        "type": "Records",
         "topic": "Other"
     },
     "hours_worked": {
