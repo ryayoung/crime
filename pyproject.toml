@@ -1,0 +1,41 @@
+[build-system]
+# requires: list of packages needed to build my package
+requires = ["hatchling"]
+# build-backend: name of the python object that frontends use to perform build
+build-backend = "hatchling.build"
+
+[project]
+name = "crime"
+version = "0.1.5"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Ryan Young", email = "dev@ryayoung.com" },
+]
+maintainers = [
+    { name = "Ryan Young", email = "dev@ryayoung.com" },
+]
+description = "Explore, load, and get documentation for Colorado crime data."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas",
+    "requests",
+    "sodapy",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.9",
+    "Operating System :: OS Independent",
+]
+keywords = [
+    "socrata",
+    "open data api",
+    "open data network",
+    "colorado crime",
+]
+
+
+[project.urls]
+"Documentation" = "https://github.com/ryayoung/crime"
+"Website" = "https://colorado-crime.herokuapp.com/"
+
