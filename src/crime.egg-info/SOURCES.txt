@@ -1,0 +1,13 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+src/crime/__init__.py
+src/crime/crime.py
+src/crime/library.py
+src/crime/soda_api.py
+src/crime.egg-info/PKG-INFO
+src/crime.egg-info/SOURCES.txt
+src/crime.egg-info/dependency_links.txt
+src/crime.egg-info/requires.txt
+src/crime.egg-info/top_level.txt
